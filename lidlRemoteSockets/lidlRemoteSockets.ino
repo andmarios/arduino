@@ -25,7 +25,7 @@ uint16_t DONseq[] = {7000, \
                      1000, 500, 500, 1000, 500, 1000, 1000, 500, \
                      500, 1000, 1000, 500, 1000, 500, 1000, 500, \
                      3000};
-uint16_t DOFFseq[] ={7000, \
+uint16_t DOFFseq[] = {7000, \
                      1000, 500, 500, 1000, 1000, 500, 1000, 500, \
                      500, 1000, 1000, 500, 1000, 500, 500, 1000, \
                      500, 1000, 500, 1000, 1000, 500, 500, 1000, \
@@ -54,14 +54,12 @@ void playSignal(uint16_t seq[])
   int signal = 0;
 
   for (int i = 0; i < 10; i++) { // repeat sequence 10 times to be sure
-
     signal = 0;
     for (int j = 0; j < seqLength; j++) {
       digitalWrite(TRANSMITTER_PIN, signal);
       signal = 1 - signal; // Swap signal level
       _delay_us(seq[j]);
     }
-
   }
 
   digitalWrite(TRANSMITTER_PIN, LOW);
